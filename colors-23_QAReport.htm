@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/xml;charset=utf-8;doctype='http://www.w3.org/xhtml.dtd'" />
+        <script type="text/javascript">/*<![CDATA[*/
+    var nthChild = function (elem, num) {
+    var len = elem.length;
+    var ret = [];
+    var i = 0;
+    // :nth-child(odd)
+    if (num === 'odd') {
+        for (i = 0; i < len; i += 2) {
+            ret.push(elem[i]);
+        }
+    }
+    // :nth-child(even)
+    if (num === 'even') {
+        for (i = 1; i < len; i += 2) {
+            ret.push(elem[i]);
+        }
+    }
+    return ret;
+};
+
+function cssAlternateRows()  {
+    var tables = document.getElementsByTagName('table');
+    for (var i=0; i < tables.length; i++) {
+        var even = nthChild(tables[i].rows, 'even');
+        var odd = nthChild(tables[i].rows, 'odd');
+        for (var j=0; j < even.length; j++)
+            even[j].className += 'even';
+        for (var j=0; j < odd.length; j++)
+            odd[j].className += 'odd';
+    }
+}; /*]]>*/</script>
+        <style type="text/css">body { font-family: "Arial Unicode MS"; }
+table { border-collapse: collapse; }
+td { border: solid 1px #696969; padding: 4px; font-size: 12px; }
+tr.odd  { background: #CCC; }
+th {  background: #3c3c3c;  font-weight: bold;  color: #dcdcdc; padding: 7px; font-size: 14px; }
+</style>
+    </head>
+    <body onload="cssAlternateRows()">
+        <Project Name="colors-23.liprj" />
+        <div id="QAsummary">
+            <h1 align="center">QA Reports for colors-23.liprj</h1>
+        </div>
+        <div id="QAReport">
+            <div id="NumberCheck">
+                <hr />
+                <h2 align="center">Report: Mismatching numbers in source and target</h2>
+                <h3 align="center">No errors found</h3>
+            </div>
+            <div id="DuplicateCheck">
+                <hr />
+                <h2 align="center">Report: Inconsistency in translation of repeated source segments</h2>
+                <table border="1" width="750" align="center" cellpadding="1" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Location</th>
+                            <th>Source Segment</th>
+                            <th>Target Segment Variant</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="C:\Users\jcatolico\Documents\My Translated Projects\colors-23.liprjf\Target\Content\Colors\Blue.htm">Blue.htm</a> Segment #1</td>
+                            <td>Blue</td>
+                            <td>Blau</td>
+                        </tr>
+                        <tr>
+                            <td><a href="C:\Users\jcatolico\Documents\My Translated Projects\colors-23.liprjf\Target\Project\TOCs\Online Output.fltoc">Online Output.fltoc</a> Segment #2	<a href="C:\Users\jcatolico\Documents\My Translated Projects\colors-23.liprjf\Target\Project\TOCs\User Guide.fltoc">User Guide.fltoc</a> Segment #2</td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <br />
+            </div>
+            <div id="TagCheck">
+                <hr />
+                <h2 align="center">Report: Tag errors and warnings</h2>
+                <h3 align="center">No errors found</h3>
+            </div>
+        </div>
+    </body>
+</html>
